@@ -138,6 +138,114 @@ enum LandType {
   LAND_TYPE_Weeds = 11;
 }
 
+enum MovementZone {
+  MOVEMENT_ZONE_Normal = 0;
+  MOVEMENT_ZONE_Crusher = 1;
+  MOVEMENT_ZONE_Destroyer = 2;
+  MOVEMENT_ZONE_AmphibiousDestroyer = 3;
+  MOVEMENT_ZONE_AmphibiousCrusher = 4;
+  MOVEMENT_ZONE_Amphibious = 5;
+  MOVEMENT_ZONE_Subterranean = 6;
+  MOVEMENT_ZONE_Infantry = 7;
+  MOVEMENT_ZONE_InfantryDestroyer = 8;
+  MOVEMENT_ZONE_Fly = 9;
+  MOVEMENT_ZONE_Water = 10;
+  MOVEMENT_ZONE_WaterBeach = 11;
+  MOVEMENT_ZONE_CrusherAll = 12;
+  MOVEMENT_ZONE_None = 13;
+}
+
+enum SuperWeaponType {
+  SUPER_WEAPON_TYPE_Nuke = 0;
+  SUPER_WEAPON_TYPE_IronCurtain = 1;
+  SUPER_WEAPON_TYPE_LightningStorm = 2;
+  SUPER_WEAPON_TYPE_ChronoSphere = 3;
+  SUPER_WEAPON_TYPE_ChronoWarp = 4;
+  SUPER_WEAPON_TYPE_ParaDrop = 5;
+  SUPER_WEAPON_TYPE_AmerParaDrop = 6;
+  SUPER_WEAPON_TYPE_PsychicDominator = 7;
+  SUPER_WEAPON_TYPE_SpyPlane = 8;
+  SUPER_WEAPON_TYPE_GeneticMutator = 9;
+  SUPER_WEAPON_TYPE_ForceShield = 10;
+  SUPER_WEAPON_TYPE_PsychicReveal = 11;
+}
+
+enum Foundation {
+  FOUNDATION_1x1 = 0;
+  FOUNDATION_2x1 = 1;
+  FOUNDATION_1x2 = 2;
+  FOUNDATION_2x2 = 3;
+  FOUNDATION_2x3 = 4;
+  FOUNDATION_3x2 = 5;
+  FOUNDATION_3x3 = 6;
+  FOUNDATION_3x5 = 7;
+  FOUNDATION_4x2 = 8;
+  FOUNDATION_3x3Refinery = 9;
+  FOUNDATION_1x3 = 10;
+  FOUNDATION_3x1 = 11;
+  FOUNDATION_4x3 = 12;
+  FOUNDATION_1x4 = 13;
+  FOUNDATION_1x5 = 14;
+  FOUNDATION_2x6 = 15;
+  FOUNDATION_2x5 = 16;
+  FOUNDATION_5x3 = 17;
+  FOUNDATION_4x4 = 18;
+  FOUNDATION_3x4 = 19;
+  FOUNDATION_6x4 = 20;
+  FOUNDATION_0x0 = 21;
+}
+
+enum CloakState {
+  Uncloaked = 0;
+  Cloaking = 1;
+  Cloaked = 2;
+  Uncloaking = 3;
+}
+
+enum VeterancyRank {
+  Elite = 0;
+  Veteran = 1;
+  Rookie = 2;
+}
+
+enum LandTargetingType {
+  LANDTARGETINGTYPE_Land_OK = 0;
+  LANDTARGETINGTYPE_Land_Not_OK = 1;
+  LANDTARGETINGTYPE_Land_Secondary = 2;
+}
+
+enum NavalTargetingType {
+  NAVALTARGETINGTYPE_Underwater_Never = 0;
+  NAVALTARGETINGTYPE_Underwater_Secondary = 1;
+  NAVALTARGETINGTYPE_Underwater_Only = 2;
+  NAVALTARGETINGTYPE_Organic_Secondary = 3;
+  NAVALTARGETINGTYPE_SEAL_Special = 4;
+  NAVALTARGETINGTYPE_Naval_All = 5;
+  NAVALTARGETINGTYPE_Naval_None = 6;
+  NAVALTARGETINGTYPE_Naval_Primary = 7;
+}
+
+message AbilitiesStruct {
+  bool faster = 1;
+  bool stronger = 2;
+  bool firepower = 3;
+  bool scatter = 4;
+  bool rof = 5;
+  bool sight = 6;
+  bool cloak = 7;
+  bool tiberium_proof = 8;
+  bool vein_proof = 9;
+  bool self_heal = 10;
+  bool explodes = 11;
+  bool radar_invisible = 12;
+  bool sensors = 13;
+  bool fearless = 14;
+  bool c4 = 15;
+  bool tiberium_heal = 16;
+  bool guard_area = 17;
+  bool crusher = 18;
+}
+
 message SHPPixelData {
   uint32 width = 1;
   uint32 height = 2;
@@ -236,6 +344,145 @@ message ObjectTypeClass {
   bool requires_stolen_third_tech = 23;
   uint32 pointer_cameo = 24;
   int32 strength = 25;
+  int32 sight = 26;
+  int32 guard_range = 27;
+  float build_time_multiplier = 28;
+  int32 techno_rot = 29;
+  int32 storage = 30;
+  bool teleporter = 31;
+  bool bunkerable = 32;
+  bool immune_to_psionics = 33;
+  int32 speed = 34;
+  SpeedType speed_type = 35;
+  MovementZone movement_zone = 36;
+  bool prevent_attack_move = 37;
+  bool opportunity_fire = 38;
+  bool naval_targeting = 39;
+  bool land_targeting = 40;
+  uint32 pointer_primary_weapon = 41;
+  uint32 pointer_elite_primary_weapon = 42;
+  uint32 pointer_secondary_weapon = 43;
+  uint32 pointer_elite_secondary_weapon = 44;
+  uint32 pointer_airstrike_team_type = 45;
+  int32 airstrike_team = 46;
+  int32 airstrike_recharge_time = 47;
+  uint32 pointer_elite_airstrike_team_type = 48;
+  int32 elite_airstrike_team = 49;
+  int32 elite_airstrike_recharge_time = 50;
+  int32 ifv_mode = 51;
+  bool gunner = 52;
+  bool omni_crusher = 53;
+  bool omni_crush_resistant = 54;
+  bool gap_generator = 55;
+  int32 gap_radius_in_cells = 56;
+  int32 super_gap_radius_in_cells = 57;
+  bool can_disguise = 58;
+  bool perma_disguise = 59;
+  bool disguise_when_still = 60;
+  bool detect_disguise = 61;
+  int32 detect_disguise_range = 62;
+  bool underwater = 63;
+  bool cloakable = 64;
+  int32 cloaking_speed = 65;
+  int32 sensors_sight = 66;
+  uint32 pointer_spawns = 67;
+  int32 spawns_number = 68;
+  int32 spawn_regen_rate = 69;
+  int32 spawn_reload_rate = 70;
+  uint32 pointer_enslaves = 71;
+  int32 slaves_number = 72;
+  int32 slave_regen_rate = 73;
+  int32 slave_reload_rate = 74;
+  uint32 pointer_deploys_into = 75;
+  uint32 pointer_undeploys_into = 76;
+  bool deploy_to_land = 77;
+  int32 passengers = 78;
+  double size_limit = 79;
+  double deploy_time = 80;
+  bool open_topped = 81;
+  int32 open_transport_weapon = 82;
+  int32 flight_level = 83;
+  AbilitiesStruct veteran_abilities = 84;
+  AbilitiesStruct elite_abilities = 85;
+  bool harvester = 86;
+  bool is_simple_deployer = 87;
+  bool fearless = 88;
+  int32 harvest_rate = 89;
+  bool engineer = 90;
+  bool c4 = 91;
+  bool agent = 92;
+  bool civilian = 93;
+  bool occupier = 94;
+  uint32 pointer_occupy_weapon = 95;
+  uint32 pointer_elite_occupy_weapon = 96;
+  bool deployer = 97;
+  bool deployed_crushable = 98;
+  bool crushable = 99;
+  bool base_normal = 100;
+  bool eligible_for_ally_building = 101;
+  int32 number_of_docks = 102;
+  bool infantry_absorb = 103;
+  int32 super_weapon = 104;
+  int32 max_number_occupants = 105;
+  bool gate = 106;
+  bool construction_yard = 107;
+  bool refinery = 108;
+  bool radar = 109;
+  bool spy_sat = 110;
+  bool bunker = 111;
+  int32 adjacent = 112;
+  Foundation foundation = 113;
+  int32 produce_cash_startup = 114;
+  int32 produce_cash_amount = 115;
+  int32 produce_cash_delay = 116;
+  bool unit_repair = 117;
+  int32 units_gain_self_heal = 118;
+  int32 infantry_gain_self_heal = 119;
+  bool crate_trigger = 120;
+  SuperWeaponType super_weapon_type = 121;
+  bool is_powered = 122;
+  int32 recharge_time = 123;
+  float super_weapon_range = 124;
+  int32 burst = 125;
+  uint32 pointer_bullet = 126;
+  int32 damage = 127;
+  uint32 pointer_warhead = 128;
+  int32 rof = 129;
+  int32 weapon_range = 130;  // Range in leptons (256 = 1 cell)
+  int32 minimum_range = 131;
+  bool omni_fire = 132;
+  bool is_sonic = 133;
+  bool spawner = 134;
+  bool cell_range_finding = 135;
+  bool infinite_mind_control = 136;
+  bool fire_while_moving = 137;
+  bool suicide = 138;
+  bool is_laser = 139;
+  bool area_fire = 140;
+  repeated double verses = 141;
+  float cell_spread = 142;
+  float percent_at_max = 143;
+  bool wood = 144;
+  bool em_effect = 145;
+  bool mind_control = 146;
+  bool poison = 147;
+  bool ivan_bomb = 148;
+  bool parasite = 149;
+  bool temporal = 150;
+  bool airstrike = 151;
+  bool psychedelic = 152;
+  bool radiation = 153;
+  bool affects_allies = 154;
+  bool spawns_tiberium = 155;
+  bool arcing = 156;
+  bool inviso = 157;
+  bool inaccurate = 158;
+  bool aa = 159;
+  bool ag = 160;
+  int32 projectile_rot = 161;
+  bool subject_to_cliffs = 162;
+  bool subject_to_elevation = 163;
+  bool subject_to_walls = 164;
 }
 
 message Object {
@@ -259,6 +506,15 @@ message Object {
   Mission current_mission = 18;
   bool in_limbo = 19;
   bool on_map = 20;
+  double firepower_multiplier = 21;
+  float veterancy = 22;
+  VeterancyRank veterancy_rank = 23;
+  CloakState cloak_state = 24;
+  bool granted = 25;
+  bool one_time = 26;
+  bool is_charged = 27;
+  bool is_on_hold = 28;
+  int32 time_left = 29;
 }
 
 enum LoadStage {
@@ -557,6 +813,47 @@ message ObjectTypes {
   repeated ObjectTypeClass object_types = 1;
 }
 
+message RulesClass {
+  double veteran_ratio = 1;
+  double veteran_combat = 2;
+  double veteran_speed = 3;
+  double veteran_sight = 4;
+  double veteran_armor = 5;
+  double veteran_rof = 6;
+  double refund_percent = 7;
+  double reload_rate = 8;
+  double repair_percent = 9;
+  double repair_rate = 10;
+  int32 repair_step = 11;
+  double u_repair_rate = 12;
+  double i_repair_rate = 13;
+  int32 i_repair_step = 14;
+  int32 self_heal_infantry_frames = 15;
+  int32 self_heal_infantry_amount = 16;
+  int32 self_heal_unit_frames = 17;
+  int32 self_heal_unit_amount = 18;
+  float multiple_factory = 19;
+  float min_low_power_production_speed = 20;
+  float max_low_power_production_speed = 21;
+  int32 bridge_strength = 22;
+  float occupy_damage_multiplier = 23;
+  float occupy_rof_multiplier = 24;
+  int32 occupy_weapon_range = 25;
+  float bunker_damage_multiplier = 26;
+  float bunker_rof_multiplier = 27;
+  int32 bunker_weapon_range = 28;
+  float open_topped_damage_multiplier = 29;
+  int32 open_topped_range_bonus = 30;
+  int32 open_topped_warp_distance = 31;
+  int32 elevation_increment = 32;
+  float elevation_increment_bonus = 33;
+  float elevation_bonus_cap = 34;
+  int32 flight_level = 35;
+  uint32 pointer_prerequisite_proc_alternate = 36;
+  int32 harvester_load_rate = 37;
+  double harvester_dump_rate = 38;
+}
+
 message GameState {
   uint32 current_frame = 1;
   repeated Factory factories = 3;
@@ -573,6 +870,8 @@ message GameState {
   int32 tech_level = 14;
   repeated Cell cells_difference = 15;
   uint32 crc = 16;
+  RulesClass rules_class = 17;
+  bool single_step_paused = 18;
 }
 
 message StorageValue {
