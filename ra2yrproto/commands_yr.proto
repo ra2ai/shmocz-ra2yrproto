@@ -6,10 +6,6 @@ import "ra2yrproto/ra2yr.proto";
 
 message CreateCallbacks {}
 
-message GetGameState {
-  ra2yrproto.ra2yr.GameState state = 1;
-}
-
 message ReadValue {
   ra2yrproto.ra2yr.StorageValue data = 1;
 }
@@ -68,4 +64,8 @@ message AddMessage {
   string message = 1;
   uint32 duration_frames = 2;
   ra2yrproto.ra2yr.ColorScheme color = 3;
+}
+
+message Unpause {
+  bool was_paused = 1;
 }
