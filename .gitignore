@@ -1,8 +1,8 @@
 **
 !.gitignore
 !/.github/**
+!/ensure_protoc.sh
 !/ra2yrproto/**
-!/build.sh
 !/LICENSE
 !/pyproject.toml
 !/README.md
